@@ -6,7 +6,7 @@ const MessageSchema = mongoose.Schema({
     senderId: {
         type: mongoose.ObjectId
     },
-    reciverId: {
+    receiverId: {
         type: mongoose.ObjectId
     },
     text: {
@@ -17,3 +17,9 @@ const MessageSchema = mongoose.Schema({
     }
 
 });
+
+const Message = module.exports = mongoose.model('Message', MessageSchema);
+
+module.exports.addMessage = (newMessage, callback) => {
+    newMessage.save(callback);
+}
