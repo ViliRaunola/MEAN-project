@@ -40,7 +40,7 @@ export class RegisterComponent implements OnInit {
       this.flashMessage.show("Varmista, että sähköpostiosoite on kirjoitettu oikein!", {cssClass: 'alert-danger', timeout: 3000})
       return false;
     }
-    console.log(user.password);
+    //console.log(user.password);
 
     this.authService.registerUser(user).subscribe(data => {
       if(data.success){

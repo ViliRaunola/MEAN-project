@@ -1,2 +1,24 @@
-<h2 class="page-header">Dashboardi</h2>
-<p>Tervetuloa Dashboardille!!! Wooow</p>
+<h2 class="page-header">Dashboard</h2>
+
+<div class="d-flex flex-column"> <!--Lähde: https://www.youtube.com/watch?v=GZBcaKw5UsQ&ab_channel=CodeWithSrini-->
+    <div class="container message-container" id="message-container">
+        <div *ngIf="messages"> 
+            <div class="message" *ngFor="let message of messages">
+                <div class="badge rounded-pill bg-primary text-white">
+                    <p>{{ message.text }}</p>
+                    <p class="time"> <br> Sent: {{ message.time | date:'medium' }}</p> <!-- Lähde: https://angular.io/api/common/DatePipe -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <form (sumbit)="onSendPublicMessage()">
+        <div class="form">
+            <label>Your Message:</label>
+            <input type="text" class="form-control" [(ngModel)]="message" name="message">
+        </div>
+        <input type="submit" class="btn btn-primary" value="Send">
+    </form>
+            
+</div>

@@ -33,3 +33,8 @@ module.exports.findAllSentMessages = (senderId, callback) => {
     const query = {senderId: senderId};
     Message.find(query, callback);
 }
+
+module.exports.findAllPublicMessages = (callback) => {
+    const query = {receiverId: {$exists: false}};
+    Message.find(query, callback);
+}

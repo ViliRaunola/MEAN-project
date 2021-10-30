@@ -1,0 +1,14 @@
+#message-container {
+    overflow: auto;
+    border: solid 1px white;
+    height: 300px;
+    border-radius: 8px;
+}
+
+.badge {
+    margin-top: 5px;
+}
+
+.time {
+    font-size: 10px;
+}

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Message = require('../models/message');
 const passport = require('passport');
+const config = require('../config/database');
 
 
 //Adding a message to database
@@ -51,7 +52,16 @@ router.get('/sent', passport.authenticate('jwt', {session:false}), (req, res , n
 
 });
 
-//TODO Add a global message fetching API
+router.get('/public', (req, res, next) => {
+    Message.findAllPublicMessages((err, messages) =>{
+        if(err) throw err;
+        if(!messages){
+            return res.json({success: false, msg: 'No received messages'});
+        }else{
+            res.json({success: true, messages: messages});
+        }
+    });
+});
 
 
 
