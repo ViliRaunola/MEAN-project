@@ -23,3 +23,13 @@ const Message = module.exports = mongoose.model('Message', MessageSchema);
 module.exports.addMessage = (newMessage, callback) => {
     newMessage.save(callback);
 }
+
+module.exports.findAllReceivedPrivateMessages = (receiverId, callback) => {
+    const query = {receiverId: receiverId};
+    Message.find(query, callback);
+}
+
+module.exports.findAllSentMessages = (senderId, callback) => {
+    const query = {senderId: senderId};
+    Message.find(query, callback);
+}

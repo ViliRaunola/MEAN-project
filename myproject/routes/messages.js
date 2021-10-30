@@ -25,8 +25,33 @@ router.post('/add', (req, res, next) => {
 //Fetching the users recived messages
 router.get('/inbox', passport.authenticate('jwt', {session:false}), (req, res , next) => {
     //res.json({user: req.user});
-    console.log("Ollaan inboxissa");
+    //console.log("Ollaan inboxissa");
+
+    Message.findAllReceivedPrivateMessages(req.user._id, (err, messages) => {
+        if(err) throw err;
+        if(!messages){
+            return res.json({success: false, msg: 'No received messages'});
+        }else{
+            res.json({success: true, messages: messages});
+        }
+    });
 });
+
+//Fetching the users sent messages
+router.get('/sent', passport.authenticate('jwt', {session:false}), (req, res , next) => {
+
+    Message.findAllSentMessages(req.user._id, (err, messages) => {
+        if(err) throw err;
+        if(!messages){
+            return res.json({success: false, msg: 'No sent messages'});
+        }else{
+            res.json({success: true, messages: messages});
+        }
+    });
+
+});
+
+//TODO Add a global message fetching API
 
 
 
