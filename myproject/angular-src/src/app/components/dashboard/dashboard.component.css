@@ -24,4 +24,6 @@
 #own {
     float: right;
     background-color: green;
+    /* width: 100%; */
+    clear: both;
 }
