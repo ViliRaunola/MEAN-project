@@ -14,4 +14,11 @@ export class MsgService {
       .map(res=>res.json());
   }
 
+  sendMessage(packet){
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:8080/messages/add', packet, {headers: headers})  // FOR PRODUCTION REMOVE THE ADDRESS "http://localhost:8080/"
+      .map(res => res.json());
+  }
+
 }

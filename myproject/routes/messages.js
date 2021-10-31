@@ -3,24 +3,34 @@ const router = express.Router();
 const Message = require('../models/message');
 const passport = require('passport');
 const config = require('../config/database');
+const User = require('../models/user');
 
 
 //Adding a message to database
+// 
 router.post('/add', (req, res, next) => {
-    let newMessage = new Message({
-        senderId: req.body.senderId,
-        receiverId: req.body.receiverId,
-        text: req.body.text
-    });
 
-    Message.addMessage(newMessage, (err, message) => {
-        if(err){
-            res.json({success: false, msg:'Failed to send the message'});
-        }else{
-            res.json({success: true, msg:'Message sent'});
+
+    User.getUserByUsername(req.body.receiverUsername, (err, user) => {
+        if(err) throw err;
+        if(!user){
+            return res.json({success: false, msg: 'User was not found. Please try again.'});
         }
-    })
 
+        let newMessage = new Message({
+            senderId: req.body.senderId,
+            receiverId: user._id,
+            text: req.body.text
+        });
+    
+        Message.addMessage(newMessage, (err, message) => {
+            if(err){
+                res.json({success: false, msg:'Failed to send the message.'});
+            }else{
+                res.json({success: true, msg:'Message sent!'});
+            }
+        });
+    });
 });
 
 //Fetching the users recived messages

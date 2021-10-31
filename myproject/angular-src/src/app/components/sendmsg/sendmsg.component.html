@@ -1,0 +1,16 @@
+<h2 class="page-header">Send Messages</h2>
+<form (submit)="onSendMsgSubmit()">
+
+  <div class="form-group">
+    <label>Receiver</label>
+    <input type="text" class="form-control"  placeholder="Username" [(ngModel)]="userName" name="name">
+  </div>
+  
+  <div class="form-group">
+    <label>Your Message</label>
+    <textarea class="form-control" [(ngModel)]="message" name="text" rows="3"></textarea>
+  </div>
+
+  <input type="submit" class="btn btn-primary" value="Send">
+
+</form>

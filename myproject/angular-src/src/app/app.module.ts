@@ -18,13 +18,16 @@ import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { FooterComponent } from './components/footer/footer.component';
 import { MsgService } from './services/msg.service';
+import { SendmsgComponent } from './components/sendmsg/sendmsg.component';
+
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
-  {path: 'profile', component: ProfileComponent, canActivate:[AuthGuard]}
+  {path: 'profile', component: ProfileComponent, canActivate:[AuthGuard]},
+  {path: 'sendmsg', component: SendmsgComponent, canActivate:[AuthGuard]}
 ]
 
 @NgModule({
@@ -36,7 +39,8 @@ const appRoutes: Routes = [
     HomeComponent,
     DashboardComponent,
     ProfileComponent,
-    FooterComponent
+    FooterComponent,
+    SendmsgComponent
   ],
   imports: [
     BrowserModule,
