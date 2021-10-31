@@ -35,6 +35,13 @@ export class MsgService {
     return this.http.get('http://localhost:8080/messages/inbox', {headers: headers})
       .map(res=>res.json());
   }
+
+  sendMessagePublic(packet){
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:8080/messages/addPublic', packet, {headers: headers})  // FOR PRODUCTION REMOVE THE ADDRESS "http://localhost:8080/"
+      .map(res => res.json());
+  }
   
 
 }

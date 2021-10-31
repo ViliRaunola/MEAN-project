@@ -1,6 +1,6 @@
 #message-container {
     overflow: auto;
-    border: solid 1px white;
+    border: solid 1px rgb(182, 176, 176);
     height: 300px;
     border-radius: 8px;
     display: flex;

@@ -10,7 +10,6 @@ const User = require('../models/user');
 // 
 router.post('/add', (req, res, next) => {
 
-
     User.getUserByUsername(req.body.receiverUsername, (err, user) => {
         if(err) throw err;
         if(!user){
@@ -72,6 +71,27 @@ router.get('/public', (req, res, next) => {
             res.json({success: true, messages: messages});
         }
     });
+});
+
+
+//Adding a message to database
+// 
+router.post('/addPublic', (req, res, next) => {
+
+    let newMessage = new Message({
+        senderId: req.body.senderId,
+        text: req.body.text,
+        senderUsername: req.body.senderUsername
+    });
+
+    Message.addMessage(newMessage, (err, message) => {
+        if(err){
+            res.json({success: false, msg:'Failed to send the message.'});
+        }else{
+            res.json({success: true, msg:'Message sent!'});
+        }
+    });
+   
 });
 
 

@@ -5,20 +5,20 @@
         <div *ngIf="messages"> 
             <div class="message" *ngFor="let message of messages">
                 <div class="badge rounded-pill bg-primary text-white">
+                    <p class="small">FROM: {{ message.senderUsername }} AT:{{ message.time | date:'medium' }}</p> <!-- Lähde: https://angular.io/api/common/DatePipe -->
                     <p>{{ message.text }}</p>
-                    <p class="time"> <br> Sent: {{ message.time | date:'medium' }}</p> <!-- Lähde: https://angular.io/api/common/DatePipe -->
                 </div>
             </div>
         </div>
     </div>
-    
-    
-    <form (sumbit)="onSendPublicMessage()">
-        <div class="form">
-            <label>Your Message:</label>
-            <input type="text" class="form-control" [(ngModel)]="message" name="message">
-        </div>
-        <input type="submit" class="btn btn-primary" value="Send">
-    </form>
-            
 </div>
+    
+    
+<form (submit)="onSendPublicMessage()">
+    <div class="form">
+        <label>Your Message:</label>
+        <input type="text" class="form-control" [(ngModel)]="text" name="message">
+    </div>
+    <input type="submit" class="btn btn-primary" value="Send">
+</form>
+        
