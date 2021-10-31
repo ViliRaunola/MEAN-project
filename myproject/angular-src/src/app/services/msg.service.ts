@@ -11,14 +11,14 @@ export class MsgService {
   getPublicMessages(){
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.get('http://localhost:8080/messages/public', {headers: headers})
+    return this.http.get('messages/public', {headers: headers})
       .map(res=>res.json());
   }
 
   sendMessage(packet){
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:8080/messages/add', packet, {headers: headers})  // FOR PRODUCTION REMOVE THE ADDRESS "http://localhost:8080/"
+    return this.http.post('messages/add', packet, {headers: headers})  // FOR PRODUCTION REMOVE THE ADDRESS "http://localhost:8080/"
       .map(res => res.json());
   }
 
@@ -32,14 +32,14 @@ export class MsgService {
     this.loadToken();
     headers.append('Authorization', this.authToken);
     headers.append('Content-Type', 'application/json');
-    return this.http.get('http://localhost:8080/messages/inbox', {headers: headers})
+    return this.http.get('messages/inbox', {headers: headers})
       .map(res=>res.json());
   }
 
   sendMessagePublic(packet){
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:8080/messages/addPublic', packet, {headers: headers})  // FOR PRODUCTION REMOVE THE ADDRESS "http://localhost:8080/"
+    return this.http.post('messages/addPublic', packet, {headers: headers})  // FOR PRODUCTION REMOVE THE ADDRESS "http://localhost:8080/"
       .map(res => res.json());
   }
   
