@@ -12,12 +12,16 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 export class DashboardComponent implements OnInit {
   messages: Array<any> = [];
   text: String;
+  user: any;
 
   constructor(private router:Router,
               private flashMessage:FlashMessagesService,
               private msgService:MsgService) { }
 
   ngOnInit() {
+
+    this.user = JSON.parse(localStorage.getItem("user"));
+
     this.msgService.getPublicMessages().subscribe(response =>{
       this.messages = response.messages;
     },
@@ -29,12 +33,12 @@ export class DashboardComponent implements OnInit {
 
   onSendPublicMessage() {
 
-    const user = JSON.parse(localStorage.getItem("user"));
+    //this.user = JSON.parse(localStorage.getItem("user"));
 
     const packet = {
       text: this.text,
-      senderId: user.id,
-      senderUsername: user.username
+      senderId: this.user.id,
+      senderUsername: this.user.username
     };
 
 

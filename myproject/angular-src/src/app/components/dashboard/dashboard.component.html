@@ -4,10 +4,21 @@
     <div class="container message-container" id="message-container">
         <div *ngIf="messages"> 
             <div class="message" *ngFor="let message of messages">
-                <div class="badge rounded-pill bg-primary text-white">
-                    <p class="small">FROM: {{ message.senderUsername }} AT:{{ message.time | date:'medium' }}</p> <!-- Lähde: https://angular.io/api/common/DatePipe -->
-                    <p>{{ message.text }}</p>
+
+                <div *ngIf="message.senderId == user.id">
+                    <div id="own" class="badge rounded-pill bg-primary text-white">
+                        <p class="small">FROM: {{ message.senderUsername }} AT:{{ message.time | date:'medium' }}</p> <!-- Lähde: https://angular.io/api/common/DatePipe -->
+                        <p>{{ message.text }}</p>
+                    </div>
                 </div>
+
+                <div *ngIf="message.senderId != user.id">
+                    <div class="badge rounded-pill bg-primary text-white">
+                        <p class="small">FROM: {{ message.senderUsername }} AT:{{ message.time | date:'medium' }}</p> <!-- Lähde: https://angular.io/api/common/DatePipe -->
+                        <p>{{ message.text }}</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
