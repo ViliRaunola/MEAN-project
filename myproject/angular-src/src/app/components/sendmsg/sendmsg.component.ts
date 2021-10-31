@@ -21,16 +21,19 @@ export class SendmsgComponent implements OnInit {
 
   onSendMsgSubmit(){
 
-    const userId = JSON.parse(localStorage.getItem("user"));
+    const user = JSON.parse(localStorage.getItem("user"));
 
     const packet = {
       text: this.message,
       receiverUsername: this.userName,
-      senderId: userId.id
+      senderId: user.id,
+      senderUsername: user.username
     }
 
     this.msgService.sendMessage(packet).subscribe(data => {
       if(data.success){
+        this.message = '';
+        this.userName = '';
         this.flashMessage.show(data.msg, {cssClass: 'alert-success', timeout: 3000});
       }else{
         this.flashMessage.show(data.msg, {cssClass: 'alert-danger', timeout: 3000});

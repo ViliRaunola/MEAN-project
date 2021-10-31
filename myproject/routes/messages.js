@@ -20,7 +20,8 @@ router.post('/add', (req, res, next) => {
         let newMessage = new Message({
             senderId: req.body.senderId,
             receiverId: user._id,
-            text: req.body.text
+            text: req.body.text,
+            senderUsername: req.body.senderUsername
         });
     
         Message.addMessage(newMessage, (err, message) => {

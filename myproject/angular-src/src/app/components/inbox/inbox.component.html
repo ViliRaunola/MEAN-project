@@ -1,0 +1,15 @@
+<h2 class="header">Inbox</h2>
+
+<div class="" id="main"> <!--Lähde: https://www.youtube.com/watch?v=GZBcaKw5UsQ&ab_channel=CodeWithSrini-->
+  <div class="container message-container" id="message-container">
+      <div *ngIf="messages"> 
+          <div class="message" *ngFor="let message of messages">
+              <div class="badge rounded-pill bg-primary text-white" >
+                <p class="small">FROM: {{ message.senderUsername }} AT:{{ message.time | date:'medium' }}</p>  
+                <p>{{ message.text }}</p>
+                  <!--<p class="small"> <br> Sent: {{ message.time | date:'medium' }}</p> --><!-- Lähde: https://angular.io/api/common/DatePipe -->
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

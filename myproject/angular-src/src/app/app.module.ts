@@ -19,6 +19,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { FooterComponent } from './components/footer/footer.component';
 import { MsgService } from './services/msg.service';
 import { SendmsgComponent } from './components/sendmsg/sendmsg.component';
+import { InboxComponent } from './components/inbox/inbox.component';
 
 
 const appRoutes: Routes = [
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
   {path: 'profile', component: ProfileComponent, canActivate:[AuthGuard]},
-  {path: 'sendmsg', component: SendmsgComponent, canActivate:[AuthGuard]}
+  {path: 'sendmsg', component: SendmsgComponent, canActivate:[AuthGuard]},
+  {path: 'inbox', component: InboxComponent, canActivate:[AuthGuard]}
 ]
 
 @NgModule({
@@ -40,7 +42,8 @@ const appRoutes: Routes = [
     DashboardComponent,
     ProfileComponent,
     FooterComponent,
-    SendmsgComponent
+    SendmsgComponent,
+    InboxComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,27 @@
+#message-container {
+    overflow: auto;
+    border: solid 1px white;
+    height: 300px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: left;
+}
+
+#main {
+    float: left;
+}
+
+
+.badge {
+    margin-top: 5px;
+}
+
+.small {
+    font-size: 10px;
+    padding: 0px;
+    text-align: left;
+}
+
+.badge {
+    width: 100%;
+}

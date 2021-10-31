@@ -14,6 +14,9 @@ const MessageSchema = mongoose.Schema({
     },
     time: {
         type: Date, default: Date.now //Source: https://stackoverflow.com/questions/10006218/which-schematype-in-mongoose-is-best-for-timestamp
+    },
+    senderUsername: {
+        type: String
     }
 
 });
