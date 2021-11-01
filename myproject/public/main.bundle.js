@@ -850,7 +850,7 @@ module.exports = ""
 /***/ 691:
 /***/ (function(module, exports) {
 
-module.exports = "#message-container {\r\n    overflow: auto;\r\n    border: solid 1px rgb(182, 176, 176);\r\n    height: 300px;\r\n    border-radius: 8px;\r\n}\r\n\r\n.badge {\r\n    margin-top: 5px;\r\n}\r\n\r\n.time {\r\n    font-size: 10px;\r\n}\r\n\r\n.btn {\r\n    margin-top: 5px;\r\n}\r\n\r\n.form {\r\n    margin-top: 5px;\r\n}\r\n\r\n#own {\r\n    float: right;\r\n    background-color: green;\r\n    /* width: 100%; */\r\n    clear: both;\r\n}"
+module.exports = "#message-container {\r\n    overflow: auto;\r\n    border: solid 1px rgb(182, 176, 176);\r\n    height: 300px;\r\n    border-radius: 8px;\r\n    display: inline-block;\r\n}\r\n\r\n\r\n.badge {\r\n    margin-top: 5px;\r\n    width: 51%;\r\n    overflow-wrap: break-word;\r\n    overflow: auto;\r\n    display: block;\r\n    white-space: normal;\r\n    \r\n}\r\n\r\n.time {\r\n    font-size: 10px;\r\n}\r\n\r\n.btn {\r\n    margin-top: 5px;\r\n}\r\n\r\n.form {\r\n    margin-top: 5px;\r\n}\r\n\r\n#own {\r\n    float: right;\r\n    background-color: green;\r\n    /* width: 100%; */\r\n    clear: both;\r\n    overflow: auto;\r\n}"
 
 /***/ }),
 

@@ -3,10 +3,18 @@
     border: solid 1px rgb(182, 176, 176);
     height: 300px;
     border-radius: 8px;
+    display: inline-block;
 }
+
 
 .badge {
     margin-top: 5px;
+    width: 51%;
+    overflow-wrap: break-word;
+    overflow: auto;
+    display: block;
+    white-space: normal;
+    
 }
 
 .time {
@@ -26,4 +34,5 @@
     background-color: green;
     /* width: 100%; */
     clear: both;
+    overflow: auto;
 }
